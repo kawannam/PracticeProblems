@@ -37,13 +37,16 @@ public class Classy {
 				for(int k = 0; k < numClasses; k++) {
 					int x;
 					if (classList[k].equals("upper")) {
-						x = 1;
+						x = 3;
 					} else if (classList[k].equals("middle")) {
-						x = 0;
+						x = 2;
 					} else {
-						x = -1;
+						x = 1;
 					}
-					pScore += (x * Math.pow(10, -(numClasses - k)));
+					pScore += (x * Math.pow(10, (9 - numClasses + k + 1)));
+				}
+				for (int k = 0; k < (10 - numClasses); k++) {
+					pScore += (2 * Math.pow(10, k));
 				}
 				c.names[c.index] = name;
 				c.classes[c.index] = pScore;
@@ -77,7 +80,7 @@ public class Classy {
 					}
 					if (classes[i].equals(classes[i+1])) {
 						if( (0 < names[i].compareTo(names[i+1]))){
-					
+						sorted = false;
 						tempName = names[i];
 						tempClass = classes[i];
 						names[i] = names[i+1];
